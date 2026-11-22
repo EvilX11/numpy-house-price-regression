@@ -77,8 +77,14 @@ def apply_standardizer(X, mean, std):
     s=std.reshape((1,-1))
     return (x_new-m)/s
 
-# Step 9 - add_bias_column (not yet solved)
-# TODO: implement
+# Step 9 - add_bias_column
+import numpy as np
+def add_bias_column(X):
+    x=np.array(X)
+    m,n=x.shape
+    o=np.ones((m,1))
+    x=np.hstack([o,x])
+    return x
 
 # Step 10 - make_shuffled_indices (not yet solved)
 # TODO: implement
