@@ -35,8 +35,10 @@ def clip_columns(X, lower, upper):
         x_new[:,i]=np.where(x_new[:,i]>upper[i],upper[i],x_new[:,i])
     return x_new
 
-# Step 4 - make_ratio_feature (not yet solved)
-# TODO: implement
+# Step 4 - make_ratio_feature
+import numpy as np
+def make_ratio_feature(numerator, denominator, eps=1e-8):
+    return numerator/(denominator+eps)
 
 # Step 5 - append_column (not yet solved)
 # TODO: implement
