@@ -69,8 +69,13 @@ def fit_standardizer(X):
     s=np.where(s==0,1.0,s)
     return m,s
 
-# Step 8 - apply_standardizer (not yet solved)
-# TODO: implement
+# Step 8 - apply_standardizer
+import numpy as np
+def apply_standardizer(X, mean, std):
+    x_new=np.array(X)
+    m=mean.reshape((1,-1))
+    s=std.reshape((1,-1))
+    return (x_new-m)/s
 
 # Step 9 - add_bias_column (not yet solved)
 # TODO: implement
