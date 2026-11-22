@@ -92,8 +92,19 @@ def make_shuffled_indices(n_samples, seed):
     rnd=np.random.default_rng(seed=seed)
     return rnd.permutation(n_samples)
 
-# Step 11 - partition_indices (not yet solved)
-# TODO: implement
+# Step 11 - partition_indices
+import math
+def partition_indices(indices, train_ratio, val_ratio):
+    start=0
+    l=len(indices)
+    end=math.floor(train_ratio*l)
+    train_idx=indices[start:start+end]
+    start=start+end
+    end=math.floor(val_ratio*l)
+    val_idx=indices[start:start+end]
+    start=start+end
+    test_idx=indices[start:]
+    return (train_idx,val_idx,test_idx)
 
 # Step 12 - subset_xy (not yet solved)
 # TODO: implement
