@@ -46,8 +46,19 @@ def append_column(x, col):
     x_new=np.hstack([x,col])
     return x_new
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+import numpy as np
+def one_hot_encode(labels):
+    l=np.array(labels)
+    f=len(np.unique(l))
+    uni=np.unique(l)
+    uni.sort()
+    mpp={uni[i]:i for i in range(len(uni))}
+    row=np.zeros((len(l),f))
+    for i in range(len(labels)):
+        curr_label=labels[i]
+        row[i][mpp[curr_label]]=1
+    return row
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
