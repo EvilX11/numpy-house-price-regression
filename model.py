@@ -25,8 +25,15 @@ def compute_iqr_bounds(X, k=1.5):
     upper=q3+k*iqr
     return lower,upper
 
-# Step 3 - clip_columns (not yet solved)
-# TODO: implement
+# Step 3 - clip_columns
+import numpy as np
+def clip_columns(X, lower, upper):
+    x_new=np.array(X)
+    n,f=x_new.shape
+    for i in range(f):
+        x_new[:,i]=np.where(x_new[:,i]<lower[i],lower[i],x_new[:,i])
+        x_new[:,i]=np.where(x_new[:,i]>upper[i],upper[i],x_new[:,i])
+    return x_new
 
 # Step 4 - make_ratio_feature (not yet solved)
 # TODO: implement
