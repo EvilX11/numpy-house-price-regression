@@ -40,8 +40,11 @@ import numpy as np
 def make_ratio_feature(numerator, denominator, eps=1e-8):
     return numerator/(denominator+eps)
 
-# Step 5 - append_column (not yet solved)
-# TODO: implement
+# Step 5 - append_column
+def append_column(x, col):
+    col=col.reshape(-1,1)
+    x_new=np.hstack([x,col])
+    return x_new
 
 # Step 6 - one_hot_encode (not yet solved)
 # TODO: implement
