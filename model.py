@@ -15,8 +15,15 @@ def impute_nan_with_mean(X):
     x_new=np.where(np.isnan(x_new),col_means,x_new)
     return x_new
 
-# Step 2 - compute_iqr_bounds (not yet solved)
-# TODO: implement
+# Step 2 - compute_iqr_bounds
+import numpy as np
+def compute_iqr_bounds(X, k=1.5):
+    q1=np.percentile(X,25,axis=0)
+    q3=np.percentile(X,75,axis=0)
+    iqr=q3-q1
+    lower=q1-k*iqr
+    upper=q3+k*iqr
+    return lower,upper
 
 # Step 3 - clip_columns (not yet solved)
 # TODO: implement
