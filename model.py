@@ -60,8 +60,14 @@ def one_hot_encode(labels):
         row[i][mpp[curr_label]]=1
     return row
 
-# Step 7 - fit_standardizer (not yet solved)
-# TODO: implement
+# Step 7 - fit_standardizer
+import numpy as np
+def fit_standardizer(X):
+    x=np.array(X)
+    m=np.mean(x,axis=0)
+    s=np.std(x,axis=0)
+    s=np.where(s==0,1.0,s)
+    return m,s
 
 # Step 8 - apply_standardizer (not yet solved)
 # TODO: implement
