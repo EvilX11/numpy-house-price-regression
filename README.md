@@ -22,13 +22,13 @@ python scaffold.py
 - [x] **10.** make_shuffled_indices
 - [x] **11.** partition_indices
 - [x] **12.** subset_xy
-- [ ] **13.** ols_fit
-- [ ] **14.** ols_predict
-- [ ] **15.** mean_absolute_error
-- [ ] **16.** root_mean_squared_error
-- [ ] **17.** r_squared
-- [ ] **18.** residual_summary
-- [ ] **19.** prepare_cleaned_features
+- [x] **13.** ols_fit
+- [x] **14.** ols_predict
+- [x] **15.** mean_absolute_error
+- [x] **16.** root_mean_squared_error
+- [x] **17.** r_squared
+- [x] **18.** residual_summary
+- [x] **19.** prepare_cleaned_features
 - [ ] **20.** assemble_feature_matrix
 - [ ] **21.** make_train_val_test
 - [ ] **22.** standardize_and_add_bias

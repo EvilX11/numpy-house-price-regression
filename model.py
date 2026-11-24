@@ -110,26 +110,78 @@ def partition_indices(indices, train_ratio, val_ratio):
 def subset_xy(X, y, indices):
     return (X[indices],y[indices])
 
-# Step 13 - ols_fit (not yet solved)
-# TODO: implement
+# Step 13 - ols_fit
+import numpy as np
+def ols_fit(X, y):
+    x=np.array(X)
+    y_new=np.array(y)
+    #normal equation" (X.T@X)theta=X.T@y
+    A=x.T@x
+    b=x.T@y_new
+    return np.linalg.solve(A,b)
 
-# Step 14 - ols_predict (not yet solved)
-# TODO: implement
+# Step 14 - ols_predict
+import numpy as np
+def ols_predict(X, theta):
+    x=np.array(X)
+    #y_hat=sum(w_i*theta_i)+bias
+    return X@theta
 
-# Step 15 - mean_absolute_error (not yet solved)
-# TODO: implement
+# Step 15 - mean_absolute_error
+import numpy as np
+def mean_absolute_error(y_true, y_pred):
+    y_true=np.array(y_true)
+    y_pred=np.array(y_pred)
+    diff=y_true-y_pred
+    diff=np.abs(diff)
+    return np.sum(diff)/len(y_true)
 
-# Step 16 - root_mean_squared_error (not yet solved)
-# TODO: implement
+# Step 16 - root_mean_squared_error
+import numpy as np
+def root_mean_squared_error(y_true, y_pred):
+    y_true=np.array(y_true)
+    y_pred=np.array(y_pred)
+    diff=(y_true-y_pred)**2
+    return (np.sum(diff)/len(y_true))**.5
 
-# Step 17 - r_squared (not yet solved)
-# TODO: implement
+# Step 17 - r_squared
+import numpy as np
+def r_squared(y_true, y_pred):
+    mean=np.sum(y_true)/len(y_true)
+    ss_res=np.sum((y_true-y_pred)**2)
+    ss_tot=np.sum((y_true-mean)**2)
+    if ss_tot==0:
+        return 0.0
+    return 1-ss_res/ss_tot
 
-# Step 18 - residual_summary (not yet solved)
-# TODO: implement
+# Step 18 - residual_summary
+import numpy as np
+def residual_summary(y_true, y_pred):
+    r=y_true-y_pred
+    r_mean=np.sum(r)/len(r)
+    std=np.std(r)
+    dict={
+        'mean':r_mean,
+        'std':std,
+        'median_abs':np.median(np.abs(r))
+    }
+    return dict
 
-# Step 19 - prepare_cleaned_features (not yet solved)
-# TODO: implement
+# Step 19 - prepare_cleaned_features
+def prepare_cleaned_features(X, iqr_k=1.5):
+    """Impute NaNs then IQR-clip columns to produce a clean numeric matrix.
+
+    Args:
+        X: (N, F) array-like of floats, may contain NaN.
+        iqr_k: IQR multiplier passed to compute_iqr_bounds (default 1.5).
+
+    Returns:
+        (N, F) float ndarray with no NaNs, columns clipped to IQR bounds.
+    """
+    x=impute_nan_with_mean(X)
+    lower,upper=compute_iqr_bounds(x,k=iqr_k)
+    x=clip_columns(x,lower,upper)
+    return x
 
 # Step 20 - assemble_feature_matrix (not yet solved)
 # TODO: implement
