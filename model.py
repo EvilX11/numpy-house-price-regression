@@ -118,7 +118,7 @@ def ols_fit(X, y):
     #normal equation" (X.T@X)theta=X.T@y
     A=x.T@x
     b=x.T@y_new
-    return np.linalg.solve(A,b)
+    return np.linalg.pinv(A)@b
 
 # Step 14 - ols_predict
 import numpy as np
